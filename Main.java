@@ -8,13 +8,13 @@ public class Main {
     public static String calc(String input) throws Exception {
         String[] operands = input.split("[+\\-*/]");
         if (operands.length != 2) throw new Exception("Invalid input expression!");
-        char operand = input.charAt(operands[0].length());
+        char operator = input.charAt(operands[0].length());
         operands[0] = operands[0].trim();
         operands[1] = operands[1].trim();
         CountingSystem countingSystem = typeOfCountingSystem(operands);
         int a = stringToInt(operands[0], countingSystem);
         int b = stringToInt(operands[1], countingSystem);
-        int result = switch (operand) {
+        int result = switch (operator) {
             case '+' -> a + b;
             case '-' -> a - b;
             case '*' -> a * b;
